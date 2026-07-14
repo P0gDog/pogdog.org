@@ -1,3 +1,212 @@
-<h1>This site is currently under construction. Please be patient as I get things up and running.</h1>
-<h2>Email: pogdog.org Discord: pogdog7</h2>
-<p>Last updated: Tuesday, July 14, 2026</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PogDog // Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#home" class="logo">Pog<span>Dog</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Hi, I'm</p>
+        <h1 class="hero-title">PogDog</h1>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title"><span class="tag">01.</span> About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+hiya! i'm a dev who's into particle physics, machine learning, and going insane over random projects that i start and never finish. i'm always open to collaboration and feedback, so if you're interested, let me know. 
+          </p>
+          <p>
+down here you'll find all my favorite tools and skills. take a look!
+          </p>
+        </div>
+        <div class="about-card">
+          <ul class="facts-list">
+            <li><span class="fact-label">Focus</span><span class="fact-value">OSDev and Particle Physics</span></li>
+            <li><span class="fact-label">Currently building</span><span class="fact-value">Server plugins</span></li>
+            <li><span class="fact-label">Currently learning</span><span class="fact-value">C#</span></li>
+            <li><span class="fact-label">Looking for help with</span><span class="fact-value">A Python-based torrent client</span></li>
+            <li><span class="fact-label">Ask me about</span><span class="fact-value">Arch Linux</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title"><span class="tag">02.</span> Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card featured">
+          <span class="featured-badge">Featured</span>
+          <h3>PogOS</h3>
+          <p>A fully custom x86 operating system, built from scratch.</p>
+          <div class="project-tags">
+            <span>C</span><span>Assembly</span><span>OS Dev</span>
+          </div>
+          <a href="https://github.com/P0gDog/PogOS" class="project-link" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+        </article>
+
+        <article class="project-card">
+          <h3>ML Particle Prediction</h3>
+          <p>Machine learning models for predicting particle behavior, combining my interests in particle physics and ML.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Machine Learning</span>
+          </div>
+          <a href="https://github.com/P0gDog/ML-Particle-Prediction" class="project-link" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+        </article>
+
+        <article class="project-card">
+          <h3>T-Display Distance Calculator</h3>
+          <p>Uses Google's Distance Matrix API to display driving time between addresses on a LilyGO T-Display.</p>
+          <div class="project-tags">
+            <span>C++</span><span>API</span>
+          </div>
+          <a href="https://github.com/P0gDog/T-Display-Distance-Calculator" class="project-link" target="_blank" rel="noopener noreferrer">View Project &rarr;</a>
+        </article>
+      </div>
+      <p class="projects-more">This isn't all. Take a look at my <a href="https://github.com/P0gDog" target="_blank" rel="noopener noreferrer">GitHub</a> for more.</p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title"><span class="tag">03.</span> Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-badge">
+          <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="Arduino" loading="lazy">
+          <span>Arduino</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="Bash" loading="lazy">
+          <span>Bash</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.blender.org/wp-content/uploads/2020/07/blender_community_logo_orange.png" alt="Blender" loading="lazy">
+          <span>Blender</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++" loading="lazy">
+          <span>C++</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="Docker" loading="lazy">
+          <span>Docker</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt=".NET" loading="lazy">
+          <span>.NET</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/electron/electron-original.svg" alt="Electron" loading="lazy">
+          <span>Electron</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express" loading="lazy">
+          <span>Express</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="Google Cloud" loading="lazy">
+          <span>GCP</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" loading="lazy">
+          <span>Git</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy">
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes" loading="lazy">
+          <span>Kubernetes</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" loading="lazy">
+          <span>Linux</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="Nginx" loading="lazy">
+          <span>Nginx</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" loading="lazy">
+          <span>Node.js</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy">
+          <span>Pandas</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" loading="lazy">
+          <span>Python</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="PyTorch" loading="lazy">
+          <span>PyTorch</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="React" loading="lazy">
+          <span>React</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://reactnative.dev/img/header_logo.svg" alt="React Native" loading="lazy">
+          <span>React Native</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" alt="Swift" loading="lazy">
+          <span>Swift</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="TensorFlow" loading="lazy">
+          <span>TensorFlow</span>
+        </div>
+        <div class="skill-badge">
+          <img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" alt="Unity" loading="lazy">
+          <span>Unity</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <h2 class="section-title"><span class="tag">04.</span> Get In Touch</h2>
+      <p class="contact-text">
+        Have something to say or just wanna say hi? Feel free to reach out.
+      </p>
+      <a href="mailto:hello@pogdog.org" class="btn btn-primary big">Say Hello</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>made with ❤️ and sleep deprivation</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
