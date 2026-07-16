@@ -401,6 +401,27 @@ img {
   margin-bottom: 1.8rem;
 }
 
+.contact-page {
+  max-width: 1100px;
+  text-align: center;
+  padding-top: 8rem;
+}
+
+.contact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 700px;
+  margin: 2.5rem auto 0;
+  text-align: left;
+}
+
+.pgp-fingerprint {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-bottom: 1.1rem;
+  word-break: break-all;
+}
+
 .site-footer {
   text-align: center;
   padding: 2rem 1.5rem;
@@ -457,5 +478,9 @@ img {
 
   .fact-value {
     text-align: left;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 }
