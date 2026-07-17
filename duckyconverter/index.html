@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duckyconverter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="d2a-root">
+    <div class="d2a-header">
+      <div>
+        <h1>Duckyconverter</h1>
+        <p>Convert your Duckyscript payloads to Arduino sketches</p>
+      </div>
+   
+    </div>
+    <div class="d2a-grid">
+      <div class="d2a-pane">
+        <div class="d2a-pane-head">
+          <span>Duckyscript</span>
+          <a class="d2a-btn d2a-btn-ghost" href="https://github.com/hak5/usbrubberducky-payloads/tree/master/payloads/library" target="_blank" rel="noopener noreferrer">Browse payloads</a>
+        </div>
+        <textarea id="d2a-input" spellcheck="false" placeholder="REM your payload here&#10;GUI r&#10;DELAY 500&#10;STRING notepad&#10;ENTER"></textarea>
+      </div>
+      <div class="d2a-pane">
+        <div class="d2a-pane-head">
+          <span>Arduino</span>
+          <div class="d2a-pane-head-actions">
+            <button class="d2a-btn d2a-btn-ghost" id="d2a-copy" disabled>Copy</button>
+            <button class="d2a-btn" id="d2a-download" disabled>Download .ino</button>
+          </div>
+        </div>
+        <pre id="d2a-output"><div class="d2a-empty">Output will appear here as you type.</div></pre>
+      </div>
+    </div>
+    <div class="d2a-warnings" id="d2a-warnings-wrap" style="display:none;">
+      <div class="d2a-warnings-head">Warnings</div>
+      <div id="d2a-warnings-body"></div>
+    </div>
+
+    <div class="d2a-blog">
+      <h2>Notes</h2>
+
+      <h3>Why this exists</h3>
+      <p>A while ago, I was searching for a tool like this, but all of the ones I found were using an outdated Duckyscript version. The reason I needed this is due to how branded USB Rubber Duckys are INCREDIBLY expensive, so I got an <a href="https://www.amazon.com/Microcontroller-ATMEGA32U4-Development-Keyboard-Leonardo/dp/B07YY6Y8TZ">Arduino Leonardo in USB form</a>. It does the exact same thing as a Ducky, but it can only parse Arduino code. Hak5 provided so many payloads, but they were a pain to convert. That's how this tool was born.</p>
+
+      <h3>How it works</h3>
+      <p>This tool simpy takes provided Duckyscript commands and formats them to the Arduino equivalent. It's super simple and entirely written in Javascript. The code is available on the <a href="https://github.com/P0gDog/pogdog.org">repo for my site</a>.</p>
+
+      
+    </div>
+  </div>
+  <script src="keymap.js"></script>
+  <script src="converter.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
