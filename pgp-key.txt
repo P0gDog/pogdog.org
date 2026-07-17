@@ -2,7 +2,6 @@
 Comment: User ID:	pogdog <pogdog@pogdog.org>
 Comment: Valid from:	5/8/2026 11:58 AM
 Comment: Type:	255-bit EdDSA (secret key available)
-Comment: Usage:	Signing, Encryption, Certifying User IDs
 Comment: Fingerprint:	391F B8CD 7944 256F F5F8  622D 773D 0376 548B D409
 
 mDMEaf4WIxYJKwYBBAHaRw8BAQdAto1b6WtG4fhxAObWwqKNjikcwBG6R8lBaXzA
