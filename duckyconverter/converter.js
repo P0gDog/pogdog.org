@@ -4,6 +4,18 @@ function escapeStr(s) {
   return s.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
 }
 
+function substituteDefines(line, defines) {
+  const names = Object.keys(defines);
+  if (!names.length) return line;
+  names.sort((a, b) => b.length - a.length);
+  for (const name of names) {
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const pattern = new RegExp(`(^|[^A-Za-z0-9_#])${escaped}(?![A-Za-z0-9_])`, "g");
+    line = line.replace(pattern, (m, pre) => pre + defines[name]);
+  }
+  return line;
+}
+
 function parseDuckyscript(text) {
   const lines = text.split(/\r?\n/);
   const commands = [];
@@ -11,16 +23,59 @@ function parseDuckyscript(text) {
   let defaultDelay = 0;
   let pendingStringDelay = null;
   let lastCommand = null;
+  const defines = {};
+  const ifStack = [];
 
   for (let raw of lines) {
-    const line = raw.trim();
+    let line = raw.trim();
     if (!line) continue;
+    line = substituteDefines(line, defines);
 
     const spaceIdx = line.indexOf(" ");
     const keyword = (spaceIdx === -1 ? line : line.slice(0, spaceIdx)).toUpperCase();
     const rest = spaceIdx === -1 ? "" : line.slice(spaceIdx + 1);
 
+    if (keyword === "IF") {
+      const parentSkip = ifStack.length > 0 && !ifStack[ifStack.length - 1].taken;
+      if (!parentSkip) {
+        const condition = rest.replace(/\bTHEN\s*$/i, "").trim();
+        warnings.push(`IF condition "${condition}" cannot be evaluated statically; assuming true (the ELSE branch, if any, is dropped) in line: ${line}`);
+      }
+      ifStack.push({ parentSkip, taken: !parentSkip });
+      continue;
+    }
+
+    if (keyword === "ELSE") {
+      if (!ifStack.length) throw new ConversionError("ELSE without matching IF");
+      const frame = ifStack[ifStack.length - 1];
+      if (!frame.parentSkip) frame.taken = false;
+      continue;
+    }
+
+    if (keyword === "END_IF") {
+      if (!ifStack.length) throw new ConversionError("END_IF without matching IF");
+      ifStack.pop();
+      continue;
+    }
+
+    if (ifStack.length && !ifStack[ifStack.length - 1].taken) {
+      continue;
+    }
+
     if (keyword === "REM") {
+      continue;
+    }
+
+    if (keyword === "EXTENSION") {
+      continue;
+    }
+
+    if (keyword === "DEFINE") {
+      const parts = rest.trim().split(/\s+/);
+      if (parts.length < 2) throw new ConversionError("Invalid DEFINE syntax: " + line);
+      const name = parts[0];
+      const value = parts.slice(1).join(" ");
+      defines[name] = value;
       continue;
     }
 
@@ -72,6 +127,8 @@ function parseDuckyscript(text) {
     commands.push(cmd);
     lastCommand = cmd;
   }
+
+  if (ifStack.length) throw new ConversionError("Unclosed IF: missing END_IF");
 
   return { commands, defaultDelay, warnings };
 }
@@ -161,8 +218,7 @@ ${bodyStr}
 }
 
 function convert(text) {
-  const warnings = [];
-  const { commands, defaultDelay } = parseDuckyscript(text);
+  const { commands, defaultDelay, warnings } = parseDuckyscript(text);
   const sketch = generateIno(commands, defaultDelay, warnings);
   return { sketch, warnings };
 }
