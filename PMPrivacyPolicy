@@ -1,0 +1,44 @@
+ProfanityMeter's Privacy Policy
+
+Last updated: July 26th, 2026
+
+1. Summary
+
+ProfanityMeter ("the Bot") does not maintain its own database of your
+messages, message content, or word counts. It queries Discord's API live.
+It does not persist search results after the command finishes running.
+
+ 2. What Data the Bot Accesses
+
+To function, the Bot receives (via Discord's API, under Discord's own
+Message Content Intent):
+- Your Discord user ID, to identify which messages are yours.
+- The list of servers ("guilds") the Bot and you are both members of.
+- Search result counts from Discord's guild
+  message search endpoint, filtered to messages you authored.
+
+3. What the Bot Stores
+
+Nothing. The Bot does not run a database and does not log,
+save, or export your message content, search results, or word counts
+anywhere. Query results exist only in memory for the duration of the
+command and are discarded once the response is sent.
+
+Standard operational logs (e.g. errors, which command was run, by which
+user ID, for debugging uptime issues) may be kept temporarily by the bot
+host but do not include message content.
+
+4. Data Sharing
+
+The Bot does not sell, share, or transmit your data to any third party.
+All processing happens between the Bot and Discord's API.
+
+7. Changes to This Policy
+
+This policy may be updated as the Bot's functionality changes. If the Bot
+ever begins storing data (e.g. a caching layer added later), this policy
+will be updated to disclose that before the change ships.
+
+## 8. Contact
+
+Questions about this policy: legal@pogdog.org
