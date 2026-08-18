@@ -1,0 +1,48 @@
+ProfanityMeter's Terms of Service
+
+Last updated: July 26, 2026
+
+These Terms of Service ("Terms") govern your use of the ProfanityMeter
+Discord bot ("the Bot"). By adding the Bot to a server or using its
+commands, you agree to these Terms.
+
+1. What the Bot Does
+
+The Bot provides the `/profanitymeter` command, which searches Discord's
+API for tracked words sent by the
+invoking user in servers you and the Bot both belong to, and displays a
+ranked summary to you.
+
+2. Acceptable Use
+
+You agree not to:
+- Use the Bot to harass, target, or embarrass another user without their
+  consent.
+- Attempt to abuse, overload, or reverse-engineer the Bot's access to
+  Discord's API.
+- Use the Bot in any way that violates Discord's own Terms of Service,
+  Community Guidelines, or Developer Policy.
+
+3. No Warranty
+
+The Bot is provided "as is," developed as a hobby project, with
+no guarantee of uptime, accuracy, or availability.
+
+4. Limitation of Liability
+
+To the fullest extent permitted by law, the Bot's developer is not liable
+for any damages arising from use of, or inability to use, the Bot.
+
+5. Changes
+
+These Terms may be updated at any time. Continued use of the Bot after
+changes are posted constitutes acceptance of the revised Terms.
+
+6. Termination
+
+The developer may block a server or user from using the Bot at any time,
+for any reason, including violation of these Terms.
+
+7. Contact
+
+Questions about these Terms: legal@pogdog.org
