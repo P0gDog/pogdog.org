@@ -1,1 +1,0 @@
-Files for my site. Feel free to ignore this as it's only for hosting purpouses..
