@@ -1,3 +1,31 @@
-<h1>This site is under construction.</h1>
-<p>Please email pogdog@pogdog.org or DM pogdog on Discord for more information.</p>
-<p>Last updated: 1787237865 UNIX Time</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>guest@pogdog.org: ~</title>
+<meta name="description" content="pogdog.org - a terminal-style portfolio">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23101018'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%2391f9c4' font-family='monospace'>&gt;_</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<noscript>
+  <h1>pogdog</h1>
+  <p>This site is an interactive terminal and needs JavaScript to run.</p>
+  <p>Email pogdog@pogdog.org or DM pogdog7 on Discord for more information.</p>
+</noscript>
+<div id="term">
+  <div id="body">
+    <div id="output"></div>
+    <div id="inputline">
+      <span id="promptEl"></span>
+      <form id="inputForm" autocomplete="off">
+        <input id="cmdInput" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="terminal input" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
