@@ -12,18 +12,22 @@
           "about.txt":{ type:"file", content:
             "pogdog\n" +
             "-------\n" +
-            "debv\n" +
-            "This site is a permanent work in progress, same as everything else I build.\n\n" +
-            "Run `ls` to look around, or `help` if you're lost."
+            "dev / cybersec / sysadmin / linux\n" +
+            "Welcome to my site! It's a permanent work in progress and I use the domain mainly for hosting projects and servers.\n\n" +
+            "Run `ls` to look around, or `help` for a list of commands.\n" +
+            "I was inspired by https://terminal.phthallo.com. Check it out if you like this style of site!"
           },
           "contact.txt":{ type:"file", content:
             "email:   pogdog@pogdog.org\n" +
-            "discord: pogdog\n" +
+            "discord: pogdog7\n" +
             "github:  https://github.com/P0gDog\n\n" +
             "PGP key available at ~/pgp-key.txt"
           },
           "pgp-key.txt":{ type:"file", fetchPath:"pgp-key.txt" },
-          "projects.txt":{ type:"file", content: "" },
+          "projects.txt":{ type:"file", content:
+            "Most of my stuff is private. You can find some stuff on my Github in the contact file.\n" +
+            "The only web project I've got is duckyconverter, which you can find at https://pogdog.org/duckyconverter"
+          },
           ".secret":{ type:"file", content:
             "you found a secret! sadly there isn't really anthing here\n(nice work with -a though)"
           }
@@ -43,6 +47,15 @@
     return String(s).replace(/[&<>]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; });
   }
 
+  function linkify(escapedText){
+    return escapedText.replace(/https?:\/\/[^\s<]+/g, function(url){
+      var trail = "";
+      var m = url.match(/[).,!?:;]+$/);
+      if (m){ trail = m[0]; url = url.slice(0, -trail.length); }
+      return '<a class="termlink" href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>' + trail;
+    });
+  }
+
   function print(html){
     var div = document.createElement("div");
     div.className = "line";
@@ -50,7 +63,7 @@
     out.appendChild(div);
     scrollDown();
   }
-  function printText(text){ print(esc(text)); }
+  function printText(text){ print(linkify(esc(text))); }
   function scrollDown(){ body.scrollTop = body.scrollHeight; }
 
   function pathStr(arr){ return "/" + arr.join("/"); }
@@ -116,7 +129,8 @@
         "  date                 print current date/time",
         "  history              show command history",
         "  clear                clear the screen",
-        "  neofetch / fastfetch replay the system info banner"
+        "  fastfetch            replay the system info banner",
+        "there might be a few hidden commands, too ;)"
       ].join("\n"));
     },
     ls: function(args){
@@ -154,6 +168,7 @@
       renderPrompt();
     },
     pwd: function(){ printText(pathStr(state.cwd)); },
+    whoami: function(){ printText("guest"); },
     echo: function(args){ printText(args.join(" ")); },
     date: function(){ printText(new Date().toString()); },
     history: function(){
@@ -172,7 +187,7 @@
             return fetchText(node.fetchPath).then(function(text){
               printText(text);
             }).catch(function(){
-              printText("cat: " + a + ": could not load file (are you viewing this from a live server?)");
+              printText("cat: " + a + ": could not load file");
             });
           }
           printText(node.content || "");
@@ -189,14 +204,19 @@
       printText("opening " + node.link + " ...");
       window.open(node.link, "_blank", "noopener");
     },
+    banner: function(){ printBanner(); },
     neofetch: function(){ printFastfetch(); },
     fastfetch: function(){ printFastfetch(); },
+    reboot: function(){
+      out.innerHTML = "";
+      boot();
+    },
     sudo: function(args){
       sudoTries++;
       if (sudoTries >= 3){
-        printText("guest is not in the sudoers file. This incident has been reported (three times now).");
+        printText("three times? really?");
       } else {
-        printText("guest is not in the sudoers file. This incident will be reported.");
+        printText("blud is NOT opsec");
       }
     },
     rm: function(args){
@@ -206,9 +226,11 @@
       }
       printText("rm: permission denied (this filesystem is read-only, and also fake)");
     },
-    vim: function(){ printText("~\n~\n~ -- INSERT --\n\n(just kidding. type :q to feel something, or `clear` to escape for real)"); },
+    vim: function(){ printText("~\n~\n~ -- INSERT --\n\n(just kidding. did i getcha? no? alright...)"); },
     nano: function(){ COMMANDS.vim(); },
-    sl: function(){ printText("choo choo! 🚂  (you meant `ls`, right?)"); }
+    sl: function(){ printText("you ment ls, right?"); },
+    pacman: function(){ printText("hiya fellow arch user"); },
+    apt: function(){ printText("ew switch to arch"); }
   };
 
   var sudoTries = 0;
