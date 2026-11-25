@@ -25,8 +25,8 @@
           },
           "pgp-key.txt":{ type:"file", fetchPath:"pgp-key.txt" },
           "projects.txt":{ type:"file", content:
-            "Most of my stuff is private. You can find some stuff on my Github in the contact file.\n" +
-            "The only web project I've got is duckyconverter, which you can find at https://pogdog.org/duckyconverter"
+            "Most of my stuff is private. You can find some stuff on my GitHub in the contact file.\n" +
+            "I've been making webports as of late. They're all on my GitHub."
           },
           ".secret":{ type:"file", content:
             "you found a secret! sadly there isn't really anthing here\n(nice work with -a though)"
